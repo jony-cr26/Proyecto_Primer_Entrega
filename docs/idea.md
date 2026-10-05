@@ -20,16 +20,28 @@ En esta parte se presenta la aplicación que quiere construir.
 
 ## 1.2 Material visual de la idea
 
-* **Bosquejos de pantallas principales (Mockups conceptuales):**
-  1. *Pantalla de Inicio / Tablero de Tareas:* 
-  2. *Pantalla de Detalle / Creación de Tarea:* 
-  3. *Pantalla de Perfil / Selección de Proyecto:* 
+* **Bosquejos de las 4 pantallas principales (ruta feliz + estados alternos):**
+
+![Bosquejos de pantallas principales](visual/mockups-escom-manager.png)
+
+  1. *Inicio de sesión (Fig. 1):* autenticación local, punto de entrada de la app.
+  2. *Lista de proyectos (Fig. 2 / Fig. 2b):* pantalla principal tras iniciar sesión; estado alterno de *lista vacía* cuando el usuario aún no tiene proyectos.
+  3. *Tablero del proyecto (Fig. 3 / Fig. 3b / Fig. 3c):* vista Kanban (Pendiente/En proceso/Terminado), tarea principal del recorrido; estados alternos de *carga* y de *error al guardar*.
+  4. *Nueva tarea (Fig. 4 / Fig. 4b):* formulario de creación con título, descripción, fecha límite y estado; estado alterno de *datos inválidos*.
+
 * **Diagrama del recorrido del usuario (User Flow):**
-  * `Apertura de la App` $\rightarrow$ `Pantalla Principal (Lista de Proyectos)` $\rightarrow$ `Selección de Proyecto` $\rightarrow$ `Visualización de Tablero de Tareas` $\rightarrow$ `Creación o Edición de Tarea` $\rightarrow$ `Guardado y Actualización de Estatus` $\rightarrow$ `Fin de la tarea principal`.
-* **Estados alternativos:**
-  * *Carga:* Indicador circular centrado con el texto *"Cargando tus tareas..."* al abrir un proyecto.
-  * *Lista vacía:* Mensaje visual que indica *"No hay tareas creadas en este proyecto. ¡Agrega la primera!"* con un botón de acción.
-  * *Datos inválidos:* Alerta en color rojo al intentar guardar una tarea con el campo de título vacío o una fecha límite retroactiva.
+
+![Diagrama del recorrido del usuario](visual/user-flow-escom-manager.png)
+
+  `Abrir app` $\rightarrow$ `Inicio de sesión` $\rightarrow$ `Lista de proyectos` $\rightarrow$ `Seleccionar proyecto` $\rightarrow$ `Tablero del proyecto` $\rightarrow$ `Nueva tarea` $\rightarrow$ `Guardado y actualización de estatus` $\rightarrow$ `Fin de la tarea principal`.
+
+* **Estados alternativos (señalados en los bosquejos y en el diagrama):**
+  * *Carga:* indicador al abrir un proyecto, mientras se obtienen sus tareas del almacenamiento local.
+  * *Lista vacía:* mensaje "Aún no tienes proyectos registrados" con botón de acción, si el usuario no tiene proyectos.
+  * *Error:* aviso "No se pudo guardar el cambio" con opción de reintentar, si falla la escritura en el almacenamiento local del dispositivo.
+  * *Datos inválidos:* alerta en línea, en rojo, al intentar guardar una tarea con el título vacío o una fecha límite retroactiva.
+
+* **Autoría y uso de IA:** bosquejos y diagrama elaborados por Jose Abel Reyes Castellanos con apoyo de Claude (Anthropic) para el trazado de los wireframes (HTML/CSS) y del diagrama de flujo, a partir del contenido ya definido por el equipo en la sección 1.1. El contenido, la terminología y las decisiones de producto son del equipo.
 
 ## 1.3 Historia de usuario y criterio de aceptación
 
